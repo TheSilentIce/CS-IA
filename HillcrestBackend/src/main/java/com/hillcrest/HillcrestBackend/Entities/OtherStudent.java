@@ -6,9 +6,6 @@ import jakarta.persistence.*;
 @Table(name = "otherstudent")
 public class OtherStudent extends Student {
 
-    // No additional fields as per schema
-
-    // Constructors
     public OtherStudent() {
         super();
         setStudentType("OTHER");
@@ -18,7 +15,7 @@ public class OtherStudent extends Student {
         super(name, "OTHER");
     }
 
-    // toString
+
     @Override
     public String toString() {
         return "OtherStudent{" +

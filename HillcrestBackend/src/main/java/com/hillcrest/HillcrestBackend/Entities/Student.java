@@ -1,7 +1,5 @@
 package com.hillcrest.HillcrestBackend.Entities;
 
-import com.hillcrest.HillcrestBackend.Entities.StudentCustomData;
-import com.hillcrest.HillcrestBackend.Entities.StudentUniversity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,9 +13,13 @@ import java.util.Set;
 @Entity
 @Table(name = "student")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Student {
 
-    // Getters and Setters
+/**
+ * This is the Student class, where it mostly contains the core information that all students share
+ * It also establishes a relationship with University class
+ */
+
+public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "student_id")
@@ -71,7 +73,7 @@ public class Student {
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<StudentUniversity> studentUniversities = new HashSet<>();
 
-    // Constructors
+
     public Student() {
     }
 
@@ -80,7 +82,7 @@ public class Student {
         this.studentType = studentType;
     }
 
-    // Helper methods
+
     public void addCustomData(String key, String value) {
         StudentCustomData data = new StudentCustomData(this, key, value);
         customData.add(data);
@@ -99,7 +101,7 @@ public class Student {
         studentUniversities.removeIf(su -> su.getUniversity().equals(university));
     }
 
-    // Get applied universities
+
     public Set<University> getUniversities() {
         Set<University> universities = new HashSet<>();
         for (StudentUniversity su : studentUniversities) {
@@ -108,7 +110,7 @@ public class Student {
         return universities;
     }
 
-    // equals, hashCode, and toString
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

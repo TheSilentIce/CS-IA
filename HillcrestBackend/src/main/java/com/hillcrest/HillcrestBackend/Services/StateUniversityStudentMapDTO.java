@@ -62,7 +62,7 @@ public class StateUniversityStudentMapDTO {
             this.universityId = university.getUniversityId();
             this.universityName = university.getName();
 
-            // Convert each student to DTO
+
             for (Student student : students) {
                 this.students.add(new StudentDTO(student));
             }
@@ -70,7 +70,7 @@ public class StateUniversityStudentMapDTO {
             this.studentCount = students.size();
         }
 
-        // Getters and Setters
+
         public Long getUniversityId() {
             return universityId;
         }
@@ -99,20 +99,26 @@ public class StateUniversityStudentMapDTO {
     }
 
     /**
-     * DTO for Student basic information
+     * DTO for Student
      */
     @Setter
     @Getter
     public static class StudentDTO {
-        // Getters and Setters
         private Long studentId;
         private String name;
         private String major;
         private String studentType;
 
+        /**
+         * Default constructor for StudentDTO
+         */
         public StudentDTO() {
         }
 
+        /**
+         * This is the constructor for StudentDTO that has all the parameters
+         * @param student
+         */
         public StudentDTO(Student student) {
             this.studentId = student.getStudentId();
             this.name = student.getName();

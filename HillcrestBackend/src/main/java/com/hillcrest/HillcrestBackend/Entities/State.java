@@ -11,9 +11,14 @@ import java.util.Set;
 @Getter
 @Entity
 @Table(name = "state")
+/**
+ * This is the State class
+ * It holds the state's id, name, and list of universities that are in it.
+ * It will establish a relationship with University
+ */
 public class State {
 
-    // Getters and Setters
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "state_id")
@@ -25,15 +30,21 @@ public class State {
     @OneToMany(mappedBy = "state")
     private Set<UniversityState> universityStates = new HashSet<>();
 
-    // Constructors
+
+    /**
+     * Default constructor for State
+     */
     public State() {
     }
 
+    /**
+     * Constructor for State with name parameter
+     * @param name
+     */
     public State(String name) {
         this.name = name;
     }
 
-    // Helper methods
     public void addUniversityState(UniversityState universityState) {
         this.universityStates.add(universityState);
         universityState.setState(this);
@@ -44,7 +55,7 @@ public class State {
         universityState.setState(null);
     }
 
-    // equals, hashCode, and toString
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

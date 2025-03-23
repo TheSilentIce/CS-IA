@@ -29,6 +29,7 @@ public class UniversityStudentMapController {
     @GetMapping("/getState/{stateName}")
     public ResponseEntity<StateUniversityStudentMapDTO> getStateWithUniversityStudentMap(
             @PathVariable String stateName) {
+        System.out.println("CALLED: " + stateName);
 
         return universityStudentMapService.getStateWithUniversityStudentMap(stateName)
                 .map(result -> {

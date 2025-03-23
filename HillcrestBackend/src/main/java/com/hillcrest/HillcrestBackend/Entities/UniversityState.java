@@ -12,7 +12,7 @@ import java.util.Objects;
 @Table(name = "universitystate")
 public class UniversityState {
 
-    // Getters and Setters
+
     @Setter
     @EmbeddedId
     private UniversityStateId id = new UniversityStateId();
@@ -27,7 +27,7 @@ public class UniversityState {
     @JoinColumn(name = "state_id")
     private State state;
 
-    // Constructors
+
     public UniversityState() {
     }
 
@@ -52,7 +52,7 @@ public class UniversityState {
         }
     }
 
-    // equals and hashCode
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -68,7 +68,7 @@ public class UniversityState {
         return Objects.hash(university, state);
     }
 
-    // toString
+
     @Override
     public String toString() {
         return "UniversityState{" +
@@ -77,20 +77,19 @@ public class UniversityState {
                 '}';
     }
 
-    // Embedded ID class
     @Setter
     @Getter
     @Embeddable
     public static class UniversityStateId implements Serializable {
 
-        // Getters and Setters
+
         @Column(name = "university_id")
         private Long universityId;
 
         @Column(name = "state_id")
         private Long stateId;
 
-        // Constructors
+
         public UniversityStateId() {
         }
 
@@ -99,7 +98,7 @@ public class UniversityState {
             this.stateId = stateId;
         }
 
-        // equals and hashCode
+
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;

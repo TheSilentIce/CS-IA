@@ -2,6 +2,7 @@ package com.hillcrest.HillcrestBackend.Entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -11,7 +12,7 @@ import java.util.Objects;
 @Table(name = "studentcustomdata")
 public class StudentCustomData {
 
-    // Getters and Setters
+
     @EmbeddedId
     private StudentCustomDataId id = new StudentCustomDataId();
 
@@ -23,7 +24,7 @@ public class StudentCustomData {
     @Column(name = "value_data")
     private String valueData;
 
-    // Constructors
+
     public StudentCustomData() {
     }
 
@@ -57,7 +58,7 @@ public class StudentCustomData {
         this.valueData = valueData;
     }
 
-    // equals and hashCode
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -82,7 +83,9 @@ public class StudentCustomData {
                 '}';
     }
 
-    // Embedded ID class
+
+    @Setter
+    @Getter
     @Embeddable
     public static class StudentCustomDataId implements Serializable {
 
@@ -92,7 +95,7 @@ public class StudentCustomData {
         @Column(name = "key_name")
         private String keyName;
 
-        // Constructors
+
         public StudentCustomDataId() {
         }
 
@@ -101,24 +104,7 @@ public class StudentCustomData {
             this.keyName = keyName;
         }
 
-        // Getters and Setters
-        public Long getStudentId() {
-            return studentId;
-        }
 
-        public void setStudentId(Long studentId) {
-            this.studentId = studentId;
-        }
-
-        public String getKeyName() {
-            return keyName;
-        }
-
-        public void setKeyName(String keyName) {
-            this.keyName = keyName;
-        }
-
-        // equals and hashCode
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;

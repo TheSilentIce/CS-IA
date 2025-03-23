@@ -8,26 +8,39 @@ import lombok.Setter;
 @Getter
 @Entity
 @Table(name = "businessstudent")
-public class BusinessStudent extends Student {
 
-    // Getters and Setters
+/**
+ * The BusinessStudent class inherits from Student class
+ * In addition to core data from Student, it also has whether the student has been in a business club or owned a business
+ *
+ */
+public class BusinessStudent extends Student {
     @Column(name = "had_business")
     private Boolean hadBusiness = false;
 
     @Column(name = "in_business_club")
     private Boolean inBusinessClub = false;
 
-    // Constructors
+    /**
+     * This is essentially the default constructor for the BusinessStudent class
+     */
     public BusinessStudent() {
         super();
         setStudentType("BUSINESS");
     }
 
+    /**
+     * This constructor acts as a sort of bare minimum constructor that one can use as working data.
+     * @param name
+     */
     public BusinessStudent(String name) {
         super(name, "BUSINESS");
     }
 
-    // toString
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "BusinessStudent{" +

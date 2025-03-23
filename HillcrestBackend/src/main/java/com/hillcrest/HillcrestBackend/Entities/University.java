@@ -13,7 +13,7 @@ import java.util.Set;
 @Table(name = "university")
 public class University {
 
-    // Getters and Setters
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "university_id")
@@ -25,7 +25,7 @@ public class University {
     @OneToMany(mappedBy = "university")
     private Set<UniversityState> universityStates = new HashSet<>();
 
-    // Constructors
+
     public University() {
     }
 
@@ -33,7 +33,7 @@ public class University {
         this.name = name;
     }
 
-    // Helper methods
+
     public void addUniversityState(UniversityState universityState) {
         this.universityStates.add(universityState);
         universityState.setUniversity(this);
@@ -44,7 +44,7 @@ public class University {
         universityState.setUniversity(null);
     }
 
-    // Convenience method to get related states
+
     public Set<State> getStates() {
         Set<State> states = new HashSet<>();
         for (UniversityState us : universityStates) {
@@ -53,7 +53,6 @@ public class University {
         return states;
     }
 
-    // equals, hashCode, and toString
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

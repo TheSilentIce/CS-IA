@@ -2,6 +2,7 @@ package com.hillcrest.HillcrestBackend.Entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -11,7 +12,7 @@ import java.util.Objects;
 @Table(name = "studentuniversity")
 public class StudentUniversity {
 
-    // Getters and Setters
+
     @EmbeddedId
     private StudentUniversityId id = new StudentUniversityId();
 
@@ -25,7 +26,7 @@ public class StudentUniversity {
     @JoinColumn(name = "university_id")
     private University university;
 
-    // Constructors
+
     public StudentUniversity() {
     }
 
@@ -54,7 +55,7 @@ public class StudentUniversity {
         }
     }
 
-    // equals and hashCode
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -70,7 +71,7 @@ public class StudentUniversity {
         return Objects.hash(student, university);
     }
 
-    // toString
+
     @Override
     public String toString() {
         return "StudentUniversity{" +
@@ -80,8 +81,11 @@ public class StudentUniversity {
     }
 
     // Embedded ID class
+    @Setter
+    @Getter
     @Embeddable
     public static class StudentUniversityId implements Serializable {
+
 
         @Column(name = "student_id")
         private Long studentId;
@@ -89,7 +93,6 @@ public class StudentUniversity {
         @Column(name = "university_id")
         private Long universityId;
 
-        // Constructors
         public StudentUniversityId() {
         }
 
@@ -98,24 +101,7 @@ public class StudentUniversity {
             this.universityId = universityId;
         }
 
-        // Getters and Setters
-        public Long getStudentId() {
-            return studentId;
-        }
 
-        public void setStudentId(Long studentId) {
-            this.studentId = studentId;
-        }
-
-        public Long getUniversityId() {
-            return universityId;
-        }
-
-        public void setUniversityId(Long universityId) {
-            this.universityId = universityId;
-        }
-
-        // equals and hashCode
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;

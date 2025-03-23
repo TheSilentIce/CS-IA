@@ -10,14 +10,14 @@ import lombok.Setter;
 @Table(name = "engineeringstudent")
 public class EngineeringStudent extends Student {
 
-    // Getters and Setters
+
     @Column(name = "in_fbla")
     private Boolean inFbla = false;
 
     @Column(name = "did_personal_project")
     private Boolean didPersonalProject = false;
 
-    // Constructors
+
     public EngineeringStudent() {
         super();
         setStudentType("ENGINEERING");
@@ -27,7 +27,6 @@ public class EngineeringStudent extends Student {
         super(name, "ENGINEERING");
     }
 
-    // toString
     @Override
     public String toString() {
         return "EngineeringStudent{" +
