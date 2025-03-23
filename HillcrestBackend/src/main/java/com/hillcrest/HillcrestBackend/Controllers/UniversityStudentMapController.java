@@ -11,10 +11,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v4/states")
+/**
+ * This is the controller for the Server
+ */
 public class UniversityStudentMapController {
 
     private final UniversityStudentMapService universityStudentMapService;
 
+    /**
+     * This is the constructor
+     * @param universityStudentMapService - the service
+     */
     @Autowired
     public UniversityStudentMapController(UniversityStudentMapService universityStudentMapService) {
         this.universityStudentMapService = universityStudentMapService;
