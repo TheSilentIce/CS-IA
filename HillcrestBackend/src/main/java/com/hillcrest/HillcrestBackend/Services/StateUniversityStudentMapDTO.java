@@ -1,0 +1,124 @@
+package com.hillcrest.HillcrestBackend.Services;
+
+import com.hillcrest.HillcrestBackend.Entities.State;
+import com.hillcrest.HillcrestBackend.Entities.Student;
+import com.hillcrest.HillcrestBackend.Entities.University;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * DTO for a state with a map of universities to their students
+ */
+@Setter
+@Getter
+public class StateUniversityStudentMapDTO {
+
+    // Getters and Setters
+    private Long stateId;
+    private String stateName;
+    private List<UniversityWithStudentsDTO> universitiesWithStudents = new ArrayList<>();
+    private int totalUniversities;
+    private int totalStudents;
+
+    public StateUniversityStudentMapDTO() {
+    }
+
+    public StateUniversityStudentMapDTO(State state, Map<University, List<Student>> universityStudentMap) {
+        this.stateId = state.getStateId();
+        this.stateName = state.getName();
+
+        // Convert the map to a list of UniversityWithStudentsDTO objects
+        for (Map.Entry<University, List<Student>> entry : universityStudentMap.entrySet()) {
+            UniversityWithStudentsDTO universityDto = new UniversityWithStudentsDTO(
+                    entry.getKey(), entry.getValue());
+            universitiesWithStudents.add(universityDto);
+        }
+
+        this.totalUniversities = universitiesWithStudents.size();
+        this.totalStudents = universityStudentMap.values().stream()
+                .mapToInt(List::size)
+                .sum();
+    }
+
+    /**
+     * DTO for a university with its students
+     */
+    public static class UniversityWithStudentsDTO {
+        private Long universityId;
+        @Setter
+        private String universityName;
+        private List<StudentDTO> students = new ArrayList<>();
+        @Setter
+        private int studentCount;
+
+        public UniversityWithStudentsDTO() {
+        }
+
+        public UniversityWithStudentsDTO(University university, List<Student> students) {
+            this.universityId = university.getUniversityId();
+            this.universityName = university.getName();
+
+            // Convert each student to DTO
+            for (Student student : students) {
+                this.students.add(new StudentDTO(student));
+            }
+
+            this.studentCount = students.size();
+        }
+
+        // Getters and Setters
+        public Long getUniversityId() {
+            return universityId;
+        }
+
+        public void setUniversityId(Long universityId) {
+            this.universityId = universityId;
+        }
+
+        public String getUniversityName() {
+            return universityName;
+        }
+
+        public List<StudentDTO> getStudents() {
+            return students;
+        }
+
+        public void setStudents(List<StudentDTO> students) {
+            this.students = students;
+            this.studentCount = students.size();
+        }
+
+        public int getStudentCount() {
+            return studentCount;
+        }
+
+    }
+
+    /**
+     * DTO for Student basic information
+     */
+    @Setter
+    @Getter
+    public static class StudentDTO {
+        // Getters and Setters
+        private Long studentId;
+        private String name;
+        private String major;
+        private String studentType;
+
+        public StudentDTO() {
+        }
+
+        public StudentDTO(Student student) {
+            this.studentId = student.getStudentId();
+            this.name = student.getName();
+            this.major = student.getMajor();
+            this.studentType = student.getStudentType();
+        }
+
+    }
+}

@@ -1,0 +1,35 @@
+.map-container {
+            background-color: #000000 !important;
+            position: relative;
+          }
+          
+          .student-card {
+            background-color: #cfffce;
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            border-radius: 3px;
+          }
+          
+          .student-card:hover {
+            background-color: #b8f5b6;
+          }
+          
+          .student-info {
+            position: absolute;
+            right: 100px;
+            bottom: 180px;
+            width: 250px;
+            background-color: #cfffce;
+            padding: 15px;
+            border-radius: 0.25rem;
+            z-index: 1000;
+          }
+          
+          .state-header {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 1rem;
+          }
+        
