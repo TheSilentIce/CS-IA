@@ -82,6 +82,7 @@ const StateUniversityMap: React.FC = () => {
       }
       
       const data = await response.json();
+      console.log(data);
       setStateData(data);
     } catch (err) {
       console.error('Error fetching state data:', err);
