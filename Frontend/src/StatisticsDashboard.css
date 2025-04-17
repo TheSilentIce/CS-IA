@@ -1,0 +1,147 @@
+.statistics-container {
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  background-color: transparent; /* Make transparent to show background */
+  position: relative;
+}
+
+.content-row {
+  padding: 2rem 0;
+  margin: 0;
+  min-height: calc(100vh - 56px); /* Account for navbar height */
+  position: relative;
+  z-index: 1; /* Keep content above the animated background */
+}
+
+.stats-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #2c5282; /* Darker blue for contrast */
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.stats-card {
+  height: 100%;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.07);
+  background-color: white;
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  border: none;
+}
+
+.stats-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.stats-card .card-header {
+  padding: 0.8rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border-bottom: none;
+  text-align: center;
+}
+
+.stats-card .card-body {
+  padding: 1.5rem 1rem;
+}
+
+.filter-card {
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.07);
+  background-color: white;
+  position: sticky;
+  top: 1rem;
+  overflow: hidden;
+  border: none;
+}
+
+.filter-card .card-header {
+  background-color: #4299e1; /* Lighter blue */
+  color: white;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom: none;
+  padding: 1rem;
+}
+
+.filter-card .card-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.filter-card .card-body {
+  padding: 1.25rem;
+}
+
+/* Enhanced check mark styling */
+.form-check-input:checked {
+  background-color: #4299e1; /* Matching blue */
+  border-color: #4299e1;
+  box-shadow: 0 0 0 0.2rem rgba(66, 153, 225, 0.25);
+}
+
+/* Add a checkmark icon for the selected option */
+.form-check-input:checked + .form-check-label {
+  font-weight: 600;
+  color: #4299e1; /* Matching blue */
+}
+
+.form-check-input:checked + .form-check-label::after {
+  content: "✓";
+  margin-left: 8px;
+  color: #4299e1; /* Matching blue */
+  font-weight: bold;
+}
+
+/* Card category headers */
+.stats-card .card-header.bg-primary {
+  background: linear-gradient(45deg, #4299e1, #63b3ed) !important; /* Lighter blues */
+}
+
+.stats-card .card-header.bg-warning {
+  background: linear-gradient(45deg, #ed8936, #f6ad55) !important; /* Softer oranges */
+}
+
+.stats-card .card-header.bg-danger {
+  background: linear-gradient(45deg, #f56565, #fc8181) !important; /* Softer reds */ 
+}
+
+/* General stats card styling */
+.stats-card.general-stat {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+/* Stats divider styling */
+.stats-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #2c5282; /* Darker blue */
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.stats-divider::before,
+.stats-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 2px solid rgba(66, 153, 225, 0.3); /* Light blue */
+}
+
+.stats-divider::before {
+  margin-right: 1rem;
+}
+
+.stats-divider::after {
+  margin-left: 1rem;
+}
+
+.stat

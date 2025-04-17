@@ -1,0 +1,46 @@
+.circular-progressbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.progress-ring {
+  position: relative;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.07));
+}
+
+.progress-ring-circle-bg {
+  fill: transparent;
+  stroke: #edf2f7; /* Light gray */
+  stroke-width: 8;
+}
+
+.progress-ring-circle {
+  fill: transparent;
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.1));
+}
+
+.progress-text {
+  fill: #2d3748; /* Dark gray */
+  font-size: 18px;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.stat-title {
+  font-size: 1rem;
+  text-align: center;
+  color: #4a5568; /* Medium gray */
+  margin-top: 0.75rem;
+  height: 2.5rem; /* Fixed height for titles to keep cards aligned */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  padding: 0 0.5rem;
+}

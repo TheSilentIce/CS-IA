@@ -1,3 +1,10 @@
+/**
+ * StudentCustomData - Entity representing custom key-value data associated with students
+ *
+ * This entity stores flexible, schema-less data for students using a key-value
+ * pattern. Each record has a student reference, a key name, and a value.
+ * The primary key is a composite of student ID and key name.
+ */
 package com.hillcrest.HillcrestBackend.Entities;
 
 import jakarta.persistence.*;
@@ -12,7 +19,6 @@ import java.util.Objects;
 @Table(name = "studentcustomdata")
 public class StudentCustomData {
 
-
     @EmbeddedId
     private StudentCustomDataId id = new StudentCustomDataId();
 
@@ -24,10 +30,15 @@ public class StudentCustomData {
     @Column(name = "value_data")
     private String valueData;
 
-
+    /**
+     * Creates an empty StudentCustomData object
+     */
     public StudentCustomData() {
     }
 
+    /**
+     * Creates a StudentCustomData with the specified student, key and value
+     */
     public StudentCustomData(Student student, String keyName, String valueData) {
         this.student = student;
         this.id.setStudentId(student.getStudentId());
@@ -35,10 +46,16 @@ public class StudentCustomData {
         this.valueData = valueData;
     }
 
+    /**
+     * Sets the composite ID for this custom data
+     */
     public void setId(StudentCustomDataId id) {
         this.id = id;
     }
 
+    /**
+     * Sets the student entity and updates the student ID in the composite key
+     */
     public void setStudent(Student student) {
         this.student = student;
         if (student != null) {
@@ -46,19 +63,30 @@ public class StudentCustomData {
         }
     }
 
+    /**
+     * Returns the key name from the composite ID
+     */
     public String getKeyName() {
         return id.getKeyName();
     }
 
+    /**
+     * Sets the key name in the composite ID
+     */
     public void setKeyName(String keyName) {
         this.id.setKeyName(keyName);
     }
 
+    /**
+     * Sets the value data for this custom data entry
+     */
     public void setValueData(String valueData) {
         this.valueData = valueData;
     }
 
-
+    /**
+     * Compares this object with another StudentCustomData for equality based on ID
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -68,12 +96,17 @@ public class StudentCustomData {
         return Objects.equals(getId(), that.getId());
     }
 
+    /**
+     * Generates a hash code based on the ID
+     */
     @Override
     public int hashCode() {
         return Objects.hash(getId());
     }
 
-    // toString
+    /**
+     * Returns a string representation of this object showing student name, key and value
+     */
     @Override
     public String toString() {
         return "StudentCustomData{" +
@@ -83,7 +116,11 @@ public class StudentCustomData {
                 '}';
     }
 
-
+    /**
+     * StudentCustomDataId - Embedded composite key class for the StudentCustomData entity
+     *
+     * Serves as the primary key combining the student ID and key name.
+     */
     @Setter
     @Getter
     @Embeddable
@@ -95,16 +132,23 @@ public class StudentCustomData {
         @Column(name = "key_name")
         private String keyName;
 
-
+        /**
+         * Creates an empty StudentCustomDataId
+         */
         public StudentCustomDataId() {
         }
 
+        /**
+         * Creates a StudentCustomDataId with the specified student ID and key name
+         */
         public StudentCustomDataId(Long studentId, String keyName) {
             this.studentId = studentId;
             this.keyName = keyName;
         }
 
-
+        /**
+         * Compares this object with another StudentCustomDataId for equality
+         */
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;
@@ -115,6 +159,9 @@ public class StudentCustomData {
                     Objects.equals(keyName, that.keyName);
         }
 
+        /**
+         * Generates a hash code based on the student ID and key name
+         */
         @Override
         public int hashCode() {
             return Objects.hash(studentId, keyName);

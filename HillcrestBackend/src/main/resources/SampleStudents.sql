@@ -1,4 +1,3 @@
--- Reset existing data if needed
 DELETE FROM StudentUniversity;
 DELETE FROM StudentCustomData;
 DELETE FROM OtherStudent;

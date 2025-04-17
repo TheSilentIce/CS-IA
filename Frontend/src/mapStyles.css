@@ -1,35 +1,77 @@
+/* Map view styles */
 .map-container {
-            background-color: #000000 !important;
-            position: relative;
-          }
-          
-          .student-card {
-            background-color: #cfffce;
-            padding: 0.5rem;
-            margin-bottom: 0.5rem;
-            cursor: pointer;
-            border-radius: 3px;
-          }
-          
-          .student-card:hover {
-            background-color: #b8f5b6;
-          }
-          
-          .student-info {
-            position: absolute;
-            right: 100px;
-            bottom: 180px;
-            width: 250px;
-            background-color: #cfffce;
-            padding: 15px;
-            border-radius: 0.25rem;
-            z-index: 1000;
-          }
-          
-          .state-header {
-            font-size: 2rem;
-            font-weight: bold;
-            text-align: center;
-            padding: 1rem;
-          }
-        
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #a3cfcd;
+}
+
+/* Table view styles */
+.table-view-container {
+  padding: 20px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+/* Enhance the student card */
+.student-card {
+  background-color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.student-card:hover {
+  background-color: #f8f9fa;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the student info card */
+.student-info {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 300px;
+  z-index: 1000;
+}
+
+/* State header styling */
+.state-header {
+  background-color: #4a5568;
+  color: white;
+  padding: 12px 15px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* Toggle button styling */
+.view-toggle-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+}
+
+/* Table view sidebar */
+.table-sidebar {
+  border-left: 1px solid #dee2e6;
+  padding: 15px;
+  background-color: #f8f9fa;
+}

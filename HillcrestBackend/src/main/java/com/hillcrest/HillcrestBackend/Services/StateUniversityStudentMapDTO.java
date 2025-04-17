@@ -17,7 +17,6 @@ import java.util.Map;
 @Getter
 public class StateUniversityStudentMapDTO {
 
-    // Getters and Setters
     private Long stateId;
     private String stateName;
     private List<UniversityWithStudentsDTO> universitiesWithStudents = new ArrayList<>();
@@ -31,7 +30,6 @@ public class StateUniversityStudentMapDTO {
         this.stateId = state.getStateId();
         this.stateName = state.getName();
 
-        // Convert the map to a list of UniversityWithStudentsDTO objects
         for (Map.Entry<University, List<Student>> entry : universityStudentMap.entrySet()) {
             UniversityWithStudentsDTO universityDto = new UniversityWithStudentsDTO(
                     entry.getKey(), entry.getValue());
@@ -47,7 +45,9 @@ public class StateUniversityStudentMapDTO {
     /**
      * DTO for a university with its students
      */
+    @Getter
     public static class UniversityWithStudentsDTO {
+        @Setter
         private Long universityId;
         @Setter
         private String universityName;
@@ -71,29 +71,9 @@ public class StateUniversityStudentMapDTO {
         }
 
 
-        public Long getUniversityId() {
-            return universityId;
-        }
-
-        public void setUniversityId(Long universityId) {
-            this.universityId = universityId;
-        }
-
-        public String getUniversityName() {
-            return universityName;
-        }
-
-        public List<StudentDTO> getStudents() {
-            return students;
-        }
-
         public void setStudents(List<StudentDTO> students) {
             this.students = students;
             this.studentCount = students.size();
-        }
-
-        public int getStudentCount() {
-            return studentCount;
         }
 
     }

@@ -1,0 +1,42 @@
+/* Custom styles for StudentSearch component */
+
+.table-header {
+  background-color: #5a6268;
+  color: white;
+}
+
+.table-row-even {
+  background-color: #e6c3c3;
+}
+
+.table-row-odd {
+  background-color: #d9adad;
+}
+
+.hillcrest-header {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.search-sidebar {
+  background-color: #f8f9fa;
+  border-left: 1px solid #dee2e6;
+}
+
+.search-button {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: white;
+}
+
+.map-button {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .search-sidebar {
+    border-left: none;
+    border-top: 1px solid #dee2e6;
+  }
+}

@@ -5,8 +5,6 @@ import com.hillcrest.HillcrestBackend.Entities.Student;
 import com.hillcrest.HillcrestBackend.Entities.University;
 import com.hillcrest.HillcrestBackend.Repositories.StateRepository;
 import com.hillcrest.HillcrestBackend.Repositories.StudentRepository;
-import com.hillcrest.HillcrestBackend.Repositories.StudentUniversityRepository;
-import com.hillcrest.HillcrestBackend.Repositories.UniversityRepository;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,20 +21,14 @@ import java.util.stream.Collectors;
 public class UniversityStudentMapService {
 
     private final StateRepository stateRepository;
-    private final UniversityRepository universityRepository;
     private final StudentRepository studentRepository;
-    private final StudentUniversityRepository studentUniversityRepository;
 
     @Autowired
     public UniversityStudentMapService(
             StateRepository stateRepository,
-            UniversityRepository universityRepository,
-            StudentRepository studentRepository,
-            StudentUniversityRepository studentUniversityRepository) {
+            StudentRepository studentRepository) {
         this.stateRepository = stateRepository;
-        this.universityRepository = universityRepository;
         this.studentRepository = studentRepository;
-        this.studentUniversityRepository = studentUniversityRepository;
     }
 
     /**
